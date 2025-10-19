@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account - BINGO.</title>
+    <link rel="stylesheet" href="../homepage/style.css">
+    <link rel="stylesheet" href="account.css">
+</head>
+
+<body>
+    <!-- Header (same as main page) -->
+    <header class="header">
+        <div class="nav">
+            <div class="nav__logo">
+                <img src="../homepage/logo.png" alt="Bingo-logo" class="logo">
+            </div>
+
+            <div class="nav__links">
+                <a href="../homepage/#home" class="nav__link">Home</a>
+                <a href="../homepage/#recommended" class="nav__link">Recommended</a>
+                <a href="../homepage/#products" class="nav__link">Collections</a>
+                <a href="../homepage/#footer" class="nav__link">Contact</a>
+            </div>
+
+            <div class="nav__icons">
+
+                <button class="nav__icon matching-btn" id="matchingBtn" title="Matching">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="5" width="6" height="6" rx="1" />
+                        <rect x="15" y="5" width="6" height="6" rx="1" />
+                        <rect x="9" y="13" width="6" height="6" rx="1" />
+                    </svg>
+                </button>
+                
+                <button class="nav__icon" id="favoritesBtn" aria-label="View favorites" onclick="location.href='../pages/wishlist.html'">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                    </svg>
+                </button>
+
+                <button class="nav__cart" aria-label="Shopping Cart" onclick="location.href='../pages/cart.html'">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="21" r="1" />
+                        <circle cx="20" cy="21" r="1" />
+                        <path d="m1 1 4 4 4 13h11l4-8H6" />
+                    </svg>
+                    <span class="cart-price">$0</span>
+                </button>
+
+                <button class="nav__icon account-btn" id="accountBtn" title="Account" onclick="location.href='../pages/account.html'">
+                    <div class="account-avatar">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                            <circle cx="12" cy="7" r="4" />
+                        </svg>
+                    </div>
+                </button>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- Account Page Section -->
+    <section class="account-page">
+        <div class="container">
+            <!-- Back Navigation -->
+            <div class="back-nav fade-in-section">
+                <button class="back-btn" id="backBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m12 19-7-7 7-7" />
+                        <path d="m19 12H5" />
+                    </svg>
+                    Back to Home
+                </button>
+            </div>
+
+            <!-- Account Dashboard -->
+            <div class="account-dashboard fade-in-section">
+                <div class="dashboard-header">
+                    <h1 class="dashboard-title">My Account</h1>
+                    <p class="dashboard-subtitle">Manage your profile, orders, and preferences</p>
+                </div>
+
+                <div class="dashboard-content">
+                    <!-- Profile Section -->
+                    <div class="dashboard-card profile-card">
+                        <div class="card-header">
+                            <h3 class="card-title">Profile Information</h3>
+                            <button class="edit-btn" id="editProfileBtn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                                    <path d="m18.5 2.5 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                </svg>
+                                Edit
+                            </button>
+                        </div>
+                        <div class="profile-info">
+                            <div class="profile-avatar">
+                                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                    <circle cx="12" cy="7" r="4" />
+                                </svg>
+                            </div>
+                            <div class="profile-details">
+                                <h4 class="profile-name">Sandy Nayak</h4>
+                                <p class="profile-email">sandy@example.com</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="dashboard-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="9" cy="21" r="1" />
+                                    <circle cx="20" cy="21" r="1" />
+                                    <path d="m1 1 4 4 4 13h11l4-8H6" />
+                                </svg>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-number">12</span>
+                                <span class="stat-label">Total Orders</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                                </svg>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-number">24</span>
+                                <span class="stat-label">Wishlist Items</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-number">4.8</span>
+                                <span class="stat-label">Rating</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Account Actions -->
+                    <div class="account-actions">
+                        <div class="action-card">
+                            <h3 class="action-title">Order History</h3>
+                            <p class="action-description">View and track your past orders</p>
+                            <button class="action-btn" onclick="location.href='#orders'">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="9" cy="21" r="1" />
+                                    <circle cx="20" cy="21" r="1" />
+                                    <path d="m1 1 4 4 4 13h11l4-8H6" />
+                                </svg>
+                                View Orders
+                            </button>
+                        </div>
+                        <div class="action-card">
+                            <h3 class="action-title">Wishlist</h3>
+                            <p class="action-description">Your saved items and favorites</p>
+                            <button class="action-btn" onclick="location.href='../pages/wishlist.html'">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                                </svg>
+                                View Wishlist
+                            </button>
+                        </div>
+                        <div class="action-card">
+                            <h3 class="action-title">Addresses</h3>
+                            <p class="action-description">Manage your shipping and billing addresses</p>
+                            <button class="action-btn" onclick="location.href='#addresses'">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                                    <circle cx="12" cy="10" r="3" />
+                                </svg>
+                                Manage Addresses
+                            </button>
+                        </div>
+                        <div class="action-card">
+                            <h3 class="action-title">Payment Methods</h3>
+                            <p class="action-description">Update your payment information</p>
+                            <button class="action-btn" onclick="location.href='#payments'">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="2" y="5" width="20" height="14" rx="2" />
+                                    <line x1="2" y1="10" x2="22" y2="10" />
+                                </svg>
+                                Manage Payments
+                            </button>
+                        </div>
+                        <div class="action-card">
+                            <h3 class="action-title">Account Settings</h3>
+                            <p class="action-description">Privacy, notifications, and preferences</p>
+                            <button class="action-btn" onclick="location.href='#settings'">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="3" />
+                                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                                </svg>
+                                Settings
+                            </button>
+                        </div>
+                        <div class="action-card">
+                            <h3 class="action-title">Support</h3>
+                            <p class="action-description">Get help with your account</p>
+                            <button class="action-btn" onclick="location.href='#support'">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                                    <path d="M12 17h.01" />
+                                </svg>
+                                Contact Support
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (same as other pages) -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h3 class="footer__title">BINGO.</h3>
+                    <p>Timeless fashion for the modern individual. Quality, style, and elegance in every piece.</p>
+                </div>
+                <div class="footer__section">
+                    <h4 class="footer__title">Shop</h4>
+                    <ul class="footer__links">
+                        <li><a href="#" class="footer__link">Men's Collection</a></li>
+                        <li><a href="#" class="footer__link">Women's Collection</a></li>
+                        <li><a href="#" class="footer__link">New Arrivals</a></li>
+                        <li><a href="#" class="footer__link">Sale</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h4 class="footer__title">Support</h4>
+                    <ul class="footer__links">
+                        <li><a href="#" class="footer__link">Contact Us</a></li>
+                        <li><a href="#" class="footer__link">Size Guide</a></li>
+                        <li><a href="#" class="footer__link">Returns</a></li>
+                        <li><a href="#" class="footer__link">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h4 class="footer__title">Connect</h4>
+                    <div class="footer__social">
+                        <p>Follow us for the latest updates</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link">Instagram</a>
+                            <a href="#" class="social-link">Twitter</a>
+                            <a href="#" class="social-link">Facebook</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2024 BINGO. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Matching Overlay (same as other pages) -->
+    <div class="matching-overlay" id="matchingOverlay">
+        <div class="matching-container">
+            <button class="matching-close" id="matchingClose">&times;</button>
+            <div class="matching-progress">
+                <span id="matchingProgress">1/10</span>
+            </div>
+            <div class="matching-card-container" id="matchingCardContainer">
+                <!-- Cards will be loaded here -->
+            </div>
+            <div class="matching-instructions">
+                <p>Swipe left or right • Use arrow keys</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Minimal JavaScript for animations and basic interactions
+        document.addEventListener('DOMContentLoaded', () => {
+            animatePageLoad();
+            setupEventListeners();
+        });
+
+        function animatePageLoad() {
+            // Animate fade-in sections
+            const fadeElements = document.querySelectorAll('.fade-in-section');
+            fadeElements.forEach((element, index) => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+                setTimeout(() => {
+                    element.style.transition = 'all 0.8s ease';
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        }
+
+        function setupEventListeners() {
+            // Back button
+            const backBtn = document.getElementById('backBtn');
+            if (backBtn) {
+                backBtn.addEventListener('click', () => window.history.back());
+            }
+
+            // Escape key to go back to home
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    window.location.href = '../homepage/index.html';
+                }
+            });
+        }
+
+        // Add button click animations
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('.back-btn, .edit-btn, .action-btn')) {
+                const button = e.target.closest('.back-btn, .edit-btn, .action-btn');
+                button.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    button.style.transform = 'scale(1)';
+                }, 150);
+            }
+        });
+
+    </script>
+</body>
+
+</html>

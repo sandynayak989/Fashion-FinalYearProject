@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist - BINGO.</title>
+    <link rel="stylesheet" href="../homepage/style.css">
+    <link rel="stylesheet" href="wishlist.css">
+</head>
+
+<body>
+    <!-- Header (same as main page) -->
+    <header class="header">
+        <div class="nav">
+            <div class="nav__logo">
+                <img src="../homepage/logo.png" alt="Bingo-logo" class="logo">
+            </div>
+            <div class="nav__links">
+                <a href="../homepage/index.html#home" class="nav__link">Home</a>
+                <a href="../homepage/index.html#recommended" class="nav__link">Recommended</a>
+                <a href="../homepage/index.html#products" class="nav__link">Collections</a>
+                <a href="../homepage/index.html#footer" class="nav__link">Contact</a>
+            </div>
+            <div class="nav__icons">
+                <div class="nav__icons">
+                <button class="nav__icon matching-btn" id="matchingBtn" title="Matching">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="5" width="6" height="6" rx="1" />
+                        <rect x="15" y="5" width="6" height="6" rx="1" />
+                        <rect x="9" y="13" width="6" height="6" rx="1" />
+                    </svg>
+                </button>
+
+                <button class="nav__icon" id="favoritesBtn" aria-label="View favorites" onclick="location.href='../pages/wishlist.html'">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                    </svg>
+                </button>
+
+                <button class="nav__cart" aria-label="Shopping Cart" onclick="location.href='../pages/cart.html'">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="21" r="1" />
+                        <circle cx="20" cy="21" r="1" />
+                        <path d="m1 1 4 4 4 13h11l4-8H6" />
+                    </svg>
+                    <span class="cart-price">$0</span>
+                </button>
+
+                <button class="nav__icon account-btn" id="accountBtn" title="Account" onclick="location.href='../pages/account.html'">
+                    <div class="account-avatar">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                            <circle cx="12" cy="7" r="4" />
+                        </svg>
+                    </div>
+                </button>
+                
+            </div>
+        </div>
+    </header>
+
+    <!-- Wishlist Section -->
+    <section class="wishlist-page">
+        <div class="container">
+            <!-- Back Navigation -->
+            <div class="back-nav fade-in-section">
+                <button class="back-btn" id="backBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m12 19-7-7 7-7" />
+                        <path d="m19 12H5" />
+                    </svg>
+                    Continue Shopping
+                </button>
+            </div>
+
+            <!-- Wishlist Header -->
+            <div class="wishlist-header fade-in-section">
+                <h1 class="wishlist-title">My Wishlist</h1>
+                <div class="wishlist-stats">
+                    <span class="wishlist-count" id="wishlistCount">3 items</span>
+                    <button class="clear-wishlist-btn" id="clearWishlistBtn">Clear All</button>
+                </div>
+            </div>
+
+            <!-- Empty Wishlist State (hidden when items exist) -->
+            <div class="empty-wishlist" id="emptyWishlist" style="display: none;">
+                <div class="empty-icon">
+                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <path
+                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                    </svg>
+                </div>
+                <h2 class="empty-title">Your wishlist is empty</h2>
+                <p class="empty-message">Start adding items you love to your wishlist. You can save items while shopping
+                    and come back to them later.</p>
+                <a href="../homepage/index.html#products" class="shop-now-btn">Start Shopping</a>
+            </div>
+
+            <!-- Wishlist Grid -->
+            <div class="wishlist-grid" id="wishlistGrid">
+                <!-- Sample Wishlist Item 1 -->
+                <div class="wishlist-item">
+                    <div class="wishlist-item-image">
+                        <span>PREMIUM BLAZER</span>
+                    </div>
+                    <div class="wishlist-item-info">
+                        <h3 class="wishlist-item-name">Premium Blazer</h3>
+                        <div class="wishlist-item-price">$299.00</div>
+                        <div class="wishlist-item-added">Added 2 days ago</div>
+                        <div class="wishlist-item-actions">
+                            <button class="move-to-cart-btn" onclick="moveToCart(this)">
+                                Add to Cart
+                            </button>
+                            <button class="remove-from-wishlist-btn" onclick="removeFromWishlist(this)">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polyline points="3,6 5,6 21,6" />
+                                    <path
+                                        d="m19,6v14a2,2 0 0,1-2,2H7a2,2 0 0,1-2-2V6m3,0V4a2,2 0 0,1,2-2h4a2,2 0 0,1,2,2v2" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sample Wishlist Item 2 -->
+                <div class="wishlist-item">
+                    <div class="wishlist-item-image">
+                        <span>ELEGANT DRESS</span>
+                    </div>
+                    <div class="wishlist-item-info">
+                        <h3 class="wishlist-item-name">Elegant Dress</h3>
+                        <div class="wishlist-item-price">$199.00</div>
+                        <div class="wishlist-item-added">Added 1 week ago</div>
+                        <div class="wishlist-item-actions">
+                            <button class="move-to-cart-btn" onclick="moveToCart(this)">
+                                Add to Cart
+                            </button>
+                            <button class="remove-from-wishlist-btn" onclick="removeFromWishlist(this)">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polyline points="3,6 5,6 21,6" />
+                                    <path
+                                        d="m19,6v14a2,2 0 0,1-2,2H7a2,2 0 0,1-2-2V6m3,0V4a2,2 0 0,1,2-2h4a2,2 0 0,1,2,2v2" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sample Wishlist Item 3 -->
+                <div class="wishlist-item">
+                    <div class="wishlist-item-image">
+                        <span>DESIGNER JACKET</span>
+                    </div>
+                    <div class="wishlist-item-info">
+                        <h3 class="wishlist-item-name">Designer Jacket</h3>
+                        <div class="wishlist-item-price">$349.00</div>
+                        <div class="wishlist-item-added">Added 3 days ago</div>
+                        <div class="wishlist-item-actions">
+                            <button class="move-to-cart-btn" onclick="moveToCart(this)">
+                                Add to Cart
+                            </button>
+                            <button class="remove-from-wishlist-btn" onclick="removeFromWishlist(this)">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polyline points="3,6 5,6 21,6" />
+                                    <path
+                                        d="m19,6v14a2,2 0 0,1-2,2H7a2,2 0 0,1-2-2V6m3,0V4a2,2 0 0,1,2-2h4a2,2 0 0,1,2,2v2" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (same as other pages) -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h3 class="footer__title">BINGO.</h3>
+                    <p>Timeless fashion for the modern individual. Quality, style, and elegance in every piece.</p>
+                </div>
+                <div class="footer__section">
+                    <h4 class="footer__title">Shop</h4>
+                    <ul class="footer__links">
+                        <li><a href="#" class="footer__link">Men's Collection</a></li>
+                        <li><a href="#" class="footer__link">Women's Collection</a></li>
+                        <li><a href="#" class="footer__link">New Arrivals</a></li>
+                        <li><a href="#" class="footer__link">Sale</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h4 class="footer__title">Support</h4>
+                    <ul class="footer__links">
+                        <li><a href="#" class="footer__link">Contact Us</a></li>
+                        <li><a href="#" class="footer__link">Size Guide</a></li>
+                        <li><a href="#" class="footer__link">Returns</a></li>
+                        <li><a href="#" class="footer__link">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h4 class="footer__title">Connect</h4>
+                    <div class="footer__social">
+                        <p>Follow us for the latest updates</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link">Instagram</a>
+                            <a href="#" class="social-link">Twitter</a>
+                            <a href="#" class="social-link">Facebook</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2024 BINGO. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>// Minimal JavaScript - Only for animations and basic interactions
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize the page
+            updateWishlistCount();
+            ensureWishlistVisible();
+            animateWishlistItems();
+            animateFadeInSections();
+            setupEventListeners();
+        });
+
+        function ensureWishlistVisible() {
+            const items = document.querySelectorAll('.wishlist-item');
+            const wishlistGrid = document.getElementById('wishlistGrid');
+            const emptyWishlist = document.getElementById('emptyWishlist');
+            
+            if (items.length > 0) {
+                // Show wishlist grid and hide empty state
+                wishlistGrid.style.display = 'grid';
+                wishlistGrid.style.opacity = '1';
+                emptyWishlist.style.display = 'none';
+            } else {
+                // Show empty state
+                showEmptyWishlist();
+            }
+        }
+
+        function animateWishlistItems() {
+            const items = document.querySelectorAll('.wishlist-item');
+            items.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, index * 150);
+            });
+        }
+
+        function animateFadeInSections() {
+            // Animate fade-in sections
+            const fadeElements = document.querySelectorAll('.fade-in-section');
+            fadeElements.forEach((element, index) => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+                setTimeout(() => {
+                    element.style.transition = 'all 0.8s ease';
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        }
+
+        function setupEventListeners() {
+            const backBtn = document.getElementById('backBtn');
+            if (backBtn) backBtn.addEventListener('click', () => window.history.back());
+
+            const clearBtn = document.getElementById('clearWishlistBtn');
+            if (clearBtn) clearBtn.addEventListener('click', clearWishlist);
+        }
+
+        // Functions called from HTML
+        function moveToCart(button) {
+            const wishlistItem = button.closest('.wishlist-item');
+            const productName = wishlistItem.querySelector('.wishlist-item-name').textContent;
+
+            // Animate button
+            animateBtnClick(button);
+
+            // Add special animation to the item
+            wishlistItem.classList.add('adding-to-cart');
+
+            setTimeout(() => {
+                wishlistItem.classList.remove('adding-to-cart');
+                showNotification(`${productName} added to cart!`);
+            }, 500);
+        }
+
+        function removeFromWishlist(button) {
+            const wishlistItem = button.closest('.wishlist-item');
+            const productName = wishlistItem.querySelector('.wishlist-item-name').textContent;
+
+            // Animate removal
+            wishlistItem.classList.add('removing');
+
+            setTimeout(() => {
+                wishlistItem.remove();
+                updateWishlistCount();
+                checkEmptyWishlist();
+                showNotification(`${productName} removed from wishlist!`);
+            }, 400);
+
+            animateBtnClick(button);
+        }
+
+        function clearWishlist() {
+            const items = document.querySelectorAll('.wishlist-item');
+
+            items.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('removing');
+                    setTimeout(() => {
+                        item.remove();
+                        if (index === items.length - 1) {
+                            updateWishlistCount();
+                            showEmptyWishlist();
+                            showNotification('Wishlist cleared!');
+                        }
+                    }, 400);
+                }, index * 100);
+            });
+        }
+
+        function updateWishlistCount() {
+            const items = document.querySelectorAll('.wishlist-item');
+            const count = items.length;
+            const countElement = document.getElementById('wishlistCount');
+            const badgeElement = document.querySelector('.wishlist-badge');
+
+            if (countElement) {
+                countElement.textContent = `${count} item${count !== 1 ? 's' : ''}`;
+            }
+
+            if (badgeElement) {
+                if (count > 0) {
+                    badgeElement.textContent = count;
+                    badgeElement.classList.add('show');
+                } else {
+                    badgeElement.classList.remove('show');
+                }
+            }
+        }
+
+        function checkEmptyWishlist() {
+            const items = document.querySelectorAll('.wishlist-item');
+            if (items.length === 0) {
+                showEmptyWishlist();
+            }
+        }
+
+        function showEmptyWishlist() {
+            const wishlistGrid = document.getElementById('wishlistGrid');
+            const emptyWishlist = document.getElementById('emptyWishlist');
+
+            wishlistGrid.style.opacity = '0';
+            setTimeout(() => {
+                wishlistGrid.style.display = 'none';
+                emptyWishlist.style.display = 'block';
+                emptyWishlist.style.opacity = '0';
+                setTimeout(() => {
+                    emptyWishlist.style.transition = 'opacity 0.6s ease';
+                    emptyWishlist.style.opacity = '1';
+                }, 100);
+            }, 300);
+        }
+
+        function animateBtnClick(button) {
+            if (!button) return;
+            button.style.transform = 'scale(0.95)';
+            setTimeout(() => button.style.transform = '', 150);
+        }
+
+        function showNotification(message) {
+            // Remove existing notifications
+            const existing = document.querySelectorAll('.notification');
+            existing.forEach(el => el.remove());
+
+            // Create notification
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.innerHTML = `<i class="fas fa-heart"></i> ${message}`;
+
+            notification.style.cssText = `
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        background: var(--accent-gold);
+        color: var(--primary-dark);
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        opacity: 0;
+        transform: translateX(100px);
+        transition: all 0.3s ease;
+        max-width: 300px;
+    `;
+
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.opacity = '1';
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                notification.style.transform = 'translateX(100px)';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Add heart animation to wishlist icon
+        function animateWishlistIcon() {
+            const wishlistIcon = document.querySelector('.nav__icon[title="Wishlist"]');
+            if (wishlistIcon) {
+                wishlistIcon.style.transform = 'scale(1.2)';
+                wishlistIcon.style.color = 'var(--accent-gold)';
+                setTimeout(() => {
+                    wishlistIcon.style.transform = 'scale(1)';
+                }, 200);
+            }
+        }
+
+        // Call this function when items are added/removed
+        function updateWishlistIcon() {
+            animateWishlistIcon();
+            const wishlistIcon = document.querySelector('.nav__icon[title="Wishlist"]');
+            if (wishlistIcon) {
+                wishlistIcon.classList.add('active');
+            }
+        }
+    </script>
+</body>
+
+</html>

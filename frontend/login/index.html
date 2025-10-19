@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRUE CLASSICS - Authentication</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="auth-container">
+        <!-- Model Section - Left Side -->
+        <div class="model-section">
+            <img src="model.jpg" alt="Fashion Model" class="model-image">
+            <div class="model-overlay">
+                <div class="model-content">
+                    <h1 class="model-title">Welcome to BINGO</h1>
+                    <p class="model-subtitle">Discover timeless fashion that defines your unique style and elevates your
+                        wardrobe with premium quality pieces.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Auth Section - Right Side -->
+        <div class="auth-section">
+            <!-- Toggle Switch for Login/Signup -->
+            <div class="auth-toggle">
+                <input type="radio" id="login-tab" name="auth-tab" checked>
+                <input type="radio" id="signup-tab" name="auth-tab">
+
+                <div class="tab-labels">
+                    <label for="login-tab" class="tab-label">Login</label>
+                    <label for="signup-tab" class="tab-label">Sign Up</label>
+                </div>
+
+                <!-- Login Form -->
+                <div class="auth-form login-form">
+                    <div class="form-header">
+                        <h2>Welcome Back</h2>
+                        <p>Sign in to your account to continue</p>
+                    </div>
+
+                    <form class="form" id="loginForm">
+                        <!-- Google Sign In -->
+                        <button type="button" class="google-btn">
+                            <i class="fab fa-google"></i>
+                            Continue with Google
+                        </button>
+
+                        <div class="divider">
+                            <span>or</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="loginEmail" class="form-label">Email Address</label>
+                            <input type="email" id="loginEmail" class="form-control" placeholder="Enter your email"
+                                required>
+                            <div class="error-message" id="loginEmailError"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <div class="password-input">
+                                <input type="password" id="loginPassword" class="form-control"
+                                    placeholder="Enter your password" required>
+                                <button type="button" class="password-toggle" onclick="togglePassword('loginPassword')">
+                                    <i class="fa fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="error-message" id="loginPasswordError"></div>
+                        </div>
+
+                        <button type="submit" class="btn btn--primary btn--full-width">
+                            <span class="btn-text">Sign In</span>
+                            <div class="btn-loader hidden">
+                                <i class="fas fa-spinner fa-spin"></i>
+                            </div>
+                        </button>
+                    </form>
+
+                    <div class="form-footer">
+                        <p>Don't have an account? <label for="signup-tab" class="link">Sign up here</label></p>
+                    </div>
+                </div>
+
+                <!-- Signup Form -->
+                <div class="auth-form signup-form">
+                    <!-- User Type Selection -->
+                    <div class="user-type-selection">
+                        <div class="form-header">
+                            <h2>Join TRUE CLASSICS</h2>
+                            <p>Choose your account type to get started</p>
+                        </div>
+
+                        <div class="user-type-section">
+                            <h3>I want to:</h3>
+                            <div class="user-type-options">
+                                <label class="user-type-option">
+                                    <input type="radio" name="userType" value="customer" checked>
+                                    <div class="option-content">
+                                        <i class="fas fa-shopping-bag"></i>
+                                        <span>Shop & Discover</span>
+                                        <p>Browse and purchase from our curated collection</p>
+                                    </div>
+                                </label>
+
+                                <label class="user-type-option">
+                                    <input type="radio" name="userType" value="seller">
+                                    <div class="option-content">
+                                        <i class="fas fa-store"></i>
+                                        <span>Sell & Create</span>
+                                        <p>List your products and grow your fashion business</p>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <button type="button" class="btn btn--primary btn--full-width" id="continueBtn">
+                                Continue
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Signup Details Form -->
+                    <div class="signup-details-form hidden">
+                        <div class="form-header">
+                            <h2>Create Account</h2>
+                            <p>Fill in your details to complete registration</p>
+                        </div>
+
+                        <form class="form" id="signupForm">
+
+                            <div class="form-group">
+                                <label for="signupEmail" class="form-label">Email Address</label>
+                                <input type="email" id="signupEmail" class="form-control" placeholder="Enter your email"
+                                    required>
+                                <div class="error-message" id="signupEmailError"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="signupPassword" class="form-label">Password</label>
+                                <div class="password-input">
+                                    <input type="password" id="signupPassword" class="form-control"
+                                        placeholder="Create a password" required>
+                                    <button type="button" class="password-toggle"
+                                        onclick="togglePassword('signupPassword')">
+                                        <i class="fa fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="error-message" id="signupPasswordError"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                <div class="password-input">
+                                    <input type="password" id="confirmPassword" class="form-control"
+                                        placeholder="Confirm your password" required>
+                                    <button type="button" class="password-toggle"
+                                        onclick="togglePassword('confirmPassword')">
+                                        <i class="fa fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="error-message" id="confirmPasswordError"></div>
+                            </div>
+
+                            <!-- Business Name (Hidden by default) -->
+                            <div class="form-group business-name-group hidden">
+                                <label for="businessName" class="form-label">Business Name</label>
+                                <input type="text" id="businessName" class="form-control"
+                                    placeholder="Enter your business name">
+                                <div class="error-message" id="businessNameError"></div>
+                            </div>
+
+                            <button type="submit" class="btn btn--primary btn--full-width">
+                                <span class="btn-text">Create Account</span>
+                                <div class="btn-loader hidden">
+                                    <i class="fas fa-spinner fa-spin"></i>
+                                </div>
+                            </button>
+                        </form>
+
+                        <div class="form-footer">
+                            <p>Already have an account? <label for="login-tab" class="link">Sign in here</label></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <script src="app.js"></script> -->
+    <script>
+        // Minimal JavaScript - Only for animations and basic interactions
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('Auth page initialized');
+
+            // Initialize form interactions
+            setupFormAnimations();
+            setupUserTypeFlow();
+            setupPasswordToggles();
+            setupFormSubmissions();
+        });
+
+        // Setup smooth form animations
+        function setupFormAnimations() {
+            // Add entrance animations to form elements
+            const formElements = document.querySelectorAll('.form-group, .btn, .user-type-option');
+
+            formElements.forEach((element, index) => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+
+                setTimeout(() => {
+                    element.style.transition = 'all 0.6s ease';
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+
+            // Tab switching animation
+            const tabInputs = document.querySelectorAll('input[name="auth-tab"]');
+            tabInputs.forEach(input => {
+                input.addEventListener('change', () => {
+                    // Add smooth transition effect
+                    const forms = document.querySelectorAll('.auth-form');
+                    forms.forEach(form => {
+                        form.style.transition = 'all 0.4s ease';
+                    });
+                });
+            });
+        }
+
+        // Setup user type selection flow
+        function setupUserTypeFlow() {
+            const continueBtn = document.getElementById('continueBtn');
+            const userTypeSelection = document.querySelector('.user-type-selection');
+            const signupDetailsForm = document.querySelector('.signup-details-form');
+            const businessNameGroup = document.querySelector('.business-name-group');
+            const userTypeInputs = document.querySelectorAll('input[name="userType"]');
+
+            // Continue button functionality
+            if (continueBtn) {
+                continueBtn.addEventListener('click', function () {
+                    // Smooth transition to signup details form
+                    userTypeSelection.classList.add('hidden');
+                    signupDetailsForm.classList.remove('hidden');
+                    signupDetailsForm.classList.add('active');
+
+                    // Check if seller is selected
+                    const selectedType = document.querySelector('input[name="userType"]:checked').value;
+                    if (selectedType === 'seller' && businessNameGroup) {
+                        setTimeout(() => {
+                            businessNameGroup.classList.remove('hidden');
+                            businessNameGroup.classList.add('show');
+                        }, 200);
+                    }
+                });
+            }
+
+            // User type change handler
+            userTypeInputs.forEach(input => {
+                input.addEventListener('change', function () {
+                    // Add subtle animation to selected option
+                    const allOptions = document.querySelectorAll('.option-content');
+                    allOptions.forEach(option => {
+                        option.style.transform = 'translateY(0)';
+                    });
+
+                    const selectedOption = this.nextElementSibling;
+                    selectedOption.style.transform = 'translateY(-4px)';
+                });
+            });
+        }
+
+        // Setup password visibility toggles
+        function setupPasswordToggles() {
+            // Password toggle functionality is handled by the onclick attribute in HTML
+            // This function can be used for additional toggle animations
+            const toggleButtons = document.querySelectorAll('.password-toggle');
+
+            toggleButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    // Add click animation
+                    this.style.transform = 'scale(0.9)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 150);
+                });
+            });
+        }
+
+        // Password toggle function (called from HTML)
+        function togglePassword(inputId) {
+            const input = document.getElementById(inputId);
+            const toggle = input.nextElementSibling;
+            const icon = toggle.querySelector('i');
+
+            if (input && icon) {
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            }
+        }
+
+        // Setup form submissions with animations
+        function setupFormSubmissions() {
+            const loginForm = document.getElementById('loginForm');
+            const signupForm = document.getElementById('signupForm');
+            const googleBtns = document.querySelectorAll('.google-btn');
+
+            // Login form submission
+            if (loginForm) {
+                loginForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    animateFormSubmission(this);
+                    showNotification('Login functionality ready for backend integration!');
+                });
+            }
+
+            // Signup form submission
+            if (signupForm) {
+                signupForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    animateFormSubmission(this);
+                    showNotification('Signup functionality ready for backend integration!');
+                });
+            }
+
+            // Google authentication buttons
+            googleBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    animateButton(this);
+                    showNotification('Google Sign-In ready for integration!');
+                });
+            });
+        }
+
+        // Animate form submission
+        function animateFormSubmission(form) {
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const btnText = submitBtn.querySelector('.btn-text');
+            const btnLoader = submitBtn.querySelector('.btn-loader');
+
+            // Show loading state
+            submitBtn.disabled = true;
+            btnText.classList.add('hidden');
+            btnLoader.classList.remove('hidden');
+
+            // Simulate processing
+            setTimeout(() => {
+                // Reset button state
+                submitBtn.disabled = false;
+                btnText.classList.remove('hidden');
+                btnLoader.classList.add('hidden');
+            }, 2000);
+        }
+
+        // Animate button click
+        function animateButton(button) {
+            button.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                button.style.transform = 'scale(1)';
+            }, 150);
+        }
+
+        // Show notification
+        function showNotification(message, type = 'success') {
+            // Remove existing notifications
+            const existing = document.querySelectorAll('.success-notification');
+            existing.forEach(el => el.remove());
+
+            // Create notification
+            const notification = document.createElement('div');
+            notification.className = 'success-notification';
+            notification.innerHTML = `
+        <i class="fas fa-check-circle"></i>
+        ${message}
+    `;
+
+            document.body.appendChild(notification);
+
+            // Remove after 4 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.style.animation = 'slideOutRight 0.4s ease-in-out forwards';
+                    setTimeout(() => {
+                        notification.remove();
+                    }, 400);
+                }
+            }, 4000);
+        }
+
+        // Utility function for debouncing
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Add slideOutRight animation
+        const style = document.createElement('style');
+        style.textContent = `
+    @keyframes slideOutRight {
+        to {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+    }
+`;
+        document.head.appendChild(style);
+
+    </script>
+</body>
+
+</html>

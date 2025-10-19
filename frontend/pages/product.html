@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classic Blazer - BINGO.</title>
+    <link rel="stylesheet" href="../homepage/style.css">
+    <link rel="stylesheet" href="product.css">
+</head>
+
+<body>
+    <!-- Header (same as main page) -->
+    <header class="header">
+        <div class="nav">
+            <div class="nav__logo">
+                <img src="../homepage/logo.png" alt="Bingo-logo" class="logo">
+            </div>
+            <div class="nav__links">
+                <a href="../homepage/index.html#home" class="nav__link">Home</a>
+                <a href="../homepage/index.html#recommended" class="nav__link">Recommended</a>
+                <a href="../homepage/index.html#products" class="nav__link">Collections</a>
+                <a href="../homepage/index.html#footer" class="nav__link">Contact</a>
+            </div>
+            <div class="nav__icons">
+                <div class="nav__icons">
+                <button class="nav__icon matching-btn" id="matchingBtn" title="Matching">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="5" width="6" height="6" rx="1" />
+                        <rect x="15" y="5" width="6" height="6" rx="1" />
+                        <rect x="9" y="13" width="6" height="6" rx="1" />
+                    </svg>
+                </button>
+                <button class="nav__icon" id="favoritesBtn" aria-label="View favorites" onclick="location.href='../pages/wishlist.html'">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                    </svg>
+                </button>
+                <button class="nav__cart" aria-label="Shopping Cart" onclick="location.href='../pages/cart.html'">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="21" r="1" />
+                        <circle cx="20" cy="21" r="1" />
+                        <path d="m1 1 4 4 4 13h11l4-8H6" />
+                    </svg>
+                    <span class="cart-price">$0</span>
+                </button>
+                <button class="nav__icon account-btn" id="accountBtn" title="Account" onclick="location.href='../pages/account.html'">
+                    <div class="account-avatar">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                            <circle cx="12" cy="7" r="4" />
+                        </svg>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Product Detail Section -->
+    <section class="product-detail">
+        <div class="container">
+            <!-- Back Navigation -->
+            <div class="back-nav fade-in-section">
+                <button class="back-btn" id="backBtn"onclick="">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m12 19-7-7 7-7" />
+                        <path d="m19 12H5" />
+                    </svg>
+                    Back to Products
+                </button>
+            </div>
+
+            <!-- Product Content -->
+            <div class="product-detail__content">
+                <!-- Product Image -->
+                <div class="product-images fade-in-section">
+                    <!-- Main Image -->
+                    <div class="product-main-image">
+                        <div class="main-image-container" id="mainImageContainer">
+                            <div class="product-placeholder-image" id="mainImageText">
+                                CLASSIC BLAZER
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="product-info fade-in-section">
+                    <!-- Breadcrumb -->
+                    <div class="product-breadcrumb">
+                        <span class="breadcrumb-item">Home</span>
+                        <span class="breadcrumb-separator">/</span>
+                        <span class="breadcrumb-item">Blazers</span>
+                        <span class="breadcrumb-separator">/</span>
+                        <span class="breadcrumb-item active" id="productCategory">Classic Blazer</span>
+                    </div>
+
+                    <!-- Product Title & Price -->
+                    <h1 class="product-title" id="productTitle">Classic Blazer</h1>
+                    <div class="product-price" id="productPrice">$299.00</div>
+
+                    <!-- Rating -->
+                    <div class="product-rating">
+                        <div class="stars">
+                            <span class="star active">★</span>
+                            <span class="star active">★</span>
+                            <span class="star active">★</span>
+                            <span class="star active">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <span class="rating-text">(4.0) 128 reviews</span>
+                    </div>
+
+                    <!-- Description -->
+                    <p class="product-description">
+                        Discover the perfect blend of style and comfort with this premium piece from our collection.
+                        Crafted with attention to detail and designed for the modern individual.
+                    </p>
+
+                    <!-- Product Options -->
+                    <div class="product-options">
+                        <!-- Size Selection -->
+                        <div class="option-group">
+                            <label class="option-label">Size</label>
+                            <div class="size-options">
+                                <button class="size-btn">XS</button>
+                                <button class="size-btn active">S</button>
+                                <button class="size-btn">M</button>
+                                <button class="size-btn">L</button>
+                                <button class="size-btn">XL</button>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <!-- Product Actions -->
+                    <div class="product-actions">
+                        <div class="quantity-selector">
+                            <button class="quantity-btn" id="decreaseQty">-</button>
+                            <span class="quantity-display" id="quantityDisplay">1</span>
+                            <button class="quantity-btn" id="increaseQty">+</button>
+                        </div>
+
+                        <button class="add-to-cart-btn" id="addToCartBtn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="9" cy="21" r="1" />
+                                <circle cx="20" cy="21" r="1" />
+                                <path d="m1 1 4 4 1 2h14l-1 4H6" />
+                            </svg>
+                            Add to Cart
+                        </button>
+
+                        <button class="wishlist-btn" id="wishlistBtn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Product Features -->
+                    <div class="product-features">
+                        <div class="feature-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="m9 12 2 2 4-4" />
+                                <path
+                                    d="M21 12c.552 0 1-.448 1-1V5c0-.552-.448-1-1-1H3c-.552 0-1 .448-1 1v6c0 .552.448 1 1 1h18z" />
+                            </svg>
+                            <span>Free shipping on orders over $100</span>
+                        </div>
+                        <div class="feature-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg>
+                            <span>Easy returns within 30 days</span>
+                        </div>
+                        <div class="feature-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="1" y="3" width="15" height="13" />
+                                <path d="m16 8 4-4-4-4" />
+                            </svg>
+                            <span>Premium quality materials</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Products -->
+            <div class="related-products fade-in-section">
+                <h2 class="section-title">Related Products</h2>
+                <div class="related-products__grid" id="relatedProductsGrid">
+                    <!-- Sample Related Product 1 -->
+                    <div class="product-card">
+                        <div class="product-card__image">
+                            <span>ELEGANT DRESS</span>
+                        </div>
+                        <div class="product-card__info">
+                            <h3>Elegant Dress</h3>
+                            <p class="product-card__price">$199.00</p>
+                        </div>
+                    </div>
+
+                    <!-- Sample Related Product 2 -->
+                    <div class="product-card">
+                        <div class="product-card__image">
+                            <span>COTTON T-SHIRT</span>
+                        </div>
+                        <div class="product-card__info">
+                            <h3>Cotton T-Shirt</h3>
+                            <p class="product-card__price">$49.00</p>
+                        </div>
+                    </div>
+
+                    <!-- Sample Related Product 3 -->
+                    <div class="product-card">
+                        <div class="product-card__image">
+                            <span>DENIM JEANS</span>
+                        </div>
+                        <div class="product-card__info">
+                            <h3>Denim Jeans</h3>
+                            <p class="product-card__price">$129.00</p>
+                        </div>
+                    </div>
+
+                    <!-- Sample Related Product 4 -->
+                    <div class="product-card">
+                        <div class="product-card__image">
+                            <span>LEATHER JACKET</span>
+                        </div>
+                        <div class="product-card__info">
+                            <h3>Leather Jacket</h3>
+                            <p class="product-card__price">$349.00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (same as other pages) -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h3 class="footer__title">BINGO.</h3>
+                    <p>Timeless fashion for the modern individual. Quality, style, and elegance in every piece.</p>
+                </div>
+                <div class="footer__section">
+                    <h4 class="footer__title">Shop</h4>
+                    <ul class="footer__links">
+                        <li><a href="#" class="footer__link">Men's Collection</a></li>
+                        <li><a href="#" class="footer__link">Women's Collection</a></li>
+                        <li><a href="#" class="footer__link">New Arrivals</a></li>
+                        <li><a href="#" class="footer__link">Sale</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h4 class="footer__title">Support</h4>
+                    <ul class="footer__links">
+                        <li><a href="#" class="footer__link">Contact Us</a></li>
+                        <li><a href="#" class="footer__link">Size Guide</a></li>
+                        <li><a href="#" class="footer__link">Returns</a></li>
+                        <li><a href="#" class="footer__link">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h4 class="footer__title">Connect</h4>
+                    <div class="footer__social">
+                        <p>Follow us for the latest updates</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link">Instagram</a>
+                            <a href="#" class="social-link">Twitter</a>
+                            <a href="#" class="social-link">Facebook</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2024 BINGO. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Matching Overlay (same as other pages) -->
+    <div class="matching-overlay" id="matchingOverlay">
+        <div class="matching-container">
+            <button class="matching-close" id="matchingClose">&times;</button>
+            <div class="matching-progress">
+                <span id="matchingProgress">1/10</span>
+            </div>
+            <div class="matching-card-container" id="matchingCardContainer">
+                <!-- Cards will be loaded here -->
+            </div>
+            <div class="matching-instructions">
+                <p>Swipe left or right • Use arrow keys</p>
+            </div>
+        </div>
+    </div>
+
+    <script>// Minimal JavaScript - Only for animations and basic interactions
+        document.addEventListener('DOMContentLoaded', () => {
+            animatePageLoad();
+            setupEventListeners();
+            setupProductOptions();
+        });
+
+        let quantity = 1;
+        let selectedSize = 'S';
+
+        function animatePageLoad() {
+            // Animate fade-in sections
+            const fadeElements = document.querySelectorAll('.fade-in-section');
+            fadeElements.forEach((element, index) => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+                setTimeout(() => {
+                    element.style.transition = 'all 0.8s ease';
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        }
+
+        function setupEventListeners() {
+            // Back button
+            const backBtn = document.getElementById('backBtn');
+            if (backBtn) {
+                backBtn.addEventListener('click', () => window.history.back());
+            }
+
+            // Quantity controls
+            const decreaseBtn = document.getElementById('decreaseQty');
+            const increaseBtn = document.getElementById('increaseQty');
+            const quantityDisplay = document.getElementById('quantityDisplay');
+
+            if (decreaseBtn) {
+                decreaseBtn.addEventListener('click', () => {
+                    if (quantity > 1) {
+                        quantity--;
+                        quantityDisplay.textContent = quantity;
+                        animateButton(decreaseBtn);
+                    }
+                });
+            }
+
+            if (increaseBtn) {
+                increaseBtn.addEventListener('click', () => {
+                    quantity++;
+                    quantityDisplay.textContent = quantity;
+                    animateButton(increaseBtn);
+                });
+            }
+
+            // Add to cart button
+            const addToCartBtn = document.getElementById('addToCartBtn');
+            if (addToCartBtn) {
+                addToCartBtn.addEventListener('click', handleAddToCart);
+            }
+
+            // Wishlist button
+            const wishlistBtn = document.getElementById('wishlistBtn');
+            if (wishlistBtn) {
+                wishlistBtn.addEventListener('click', (e) => {
+                    e.currentTarget.classList.toggle('active');
+                    animateButton(wishlistBtn);
+                    showNotification('Added to wishlist!');
+                });
+            }
+        }
+
+        function setupProductOptions() {
+            // Size selection
+            const sizeButtons = document.querySelectorAll('.size-btn');
+            sizeButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    sizeButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    selectedSize = button.textContent;
+                    animateButton(button);
+                });
+            });
+        }
+
+        function handleAddToCart() {
+            const addToCartBtn = document.getElementById('addToCartBtn');
+
+            // Animate button
+            animateButton(addToCartBtn);
+
+            // Show loading state
+            addToCartBtn.disabled = true;
+            addToCartBtn.innerHTML = `
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c.83 0 1.65.11 2.42.32"/>
+        </svg>
+        Adding...
+    `;
+
+            setTimeout(() => {
+                addToCartBtn.style.backgroundColor = '#28a745';
+                addToCartBtn.innerHTML = '✓ Added to Cart';
+
+                setTimeout(() => {
+                    addToCartBtn.innerHTML = `
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="9" cy="21" r="1"/>
+                    <circle cx="20" cy="21" r="1"/>
+                    <path d="m1 1 4 4 1 2h14l-1 4H6"/>
+                </svg>
+                Add to Cart
+            `;
+                    addToCartBtn.style.backgroundColor = '';
+                    addToCartBtn.disabled = false;
+                }, 2000);
+
+                showNotification('Product added to cart!');
+            }, 1500);
+        }
+
+        function animateButton(button) {
+            if (!button) return;
+            button.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                button.style.transform = 'scale(1)';
+            }, 150);
+        }
+
+        function showNotification(message) {
+            // Remove existing notifications
+            const existing = document.querySelectorAll('.notification');
+            existing.forEach(el => el.remove());
+
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+
+            notification.style.cssText = `
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        background: var(--accent-gold);
+        color: var(--primary-dark);
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-weight: 600;
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        opacity: 0;
+        transform: translateX(100px);
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        max-width: 300px;
+    `;
+
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.opacity = '1';
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                notification.style.transform = 'translateX(100px)';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+    </script>
+</body>
+
+</html>

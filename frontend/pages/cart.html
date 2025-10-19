@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - BINGO.</title>
+    <link rel="stylesheet" href="../homepage/style.css">
+    <link rel="stylesheet" href="cart.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav">
+            <div class="nav__logo">
+                <img src="../homepage/logo.png" alt="Bingo-logo" class="logo">
+            </div> 
+            <div class="nav__links">
+                <a href="../homepage/index.html#home" class="nav__link">Home</a>
+                <a href="../homepage/index.html#recommended" class="nav__link">Recommended</a>
+                <a href="../homepage/index.html#products" class="nav__link">Collections</a>
+                <a href="../homepage/index.html#footer" class="nav__link">Contact</a>
+            </div>
+            <div class="nav__icons">
+                <div class="nav__icons">
+                <button class="nav__icon matching-btn" id="matchingBtn" title="Matching">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="5" width="6" height="6" rx="1" />
+                        <rect x="15" y="5" width="6" height="6" rx="1" />
+                        <rect x="9" y="13" width="6" height="6" rx="1" />
+                    </svg>
+                </button>
+                <button class="nav__icon" id="favoritesBtn" aria-label="View favorites" onclick="location.href='../pages/wishlist.html'">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path 
+                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                    </svg>
+                </button>
+                <button class="nav__cart" aria-label="Shopping Cart" onclick="location.href='../pages/cart.html'">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="21" r="1" />
+                        <circle cx="20" cy="21" r="1" />
+                        <path d="m1 1 4 4 4 13h11l4-8H6" />
+                    </svg>  
+                    <span class="cart-price">$0</span>
+                </button>
+                <button class="nav__icon account-btn" id="accountBtn" title="Account" onclick="location.href='../pages/account.html'">
+                    <div class="account-avatar">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                            <circle cx="12" cy="7" r="4" />
+                        </svg>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cart Section -->
+    <section class="cart-page">
+        <div class="container">
+            <!-- Back Navigation -->
+            <div class="back-nav fade-in-section">
+                <button class="back-btn" id="backBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m12 19-7-7 7-7"/>
+                        <path d="m19 12H5"/>
+                    </svg>
+                    Continue Shopping
+                </button>
+            </div>
+
+            <!-- Cart Header -->
+            <div class="cart-header fade-in-section">
+                <h1 class="cart-title">Shopping Cart</h1>
+                <div class="cart-stats">
+                    <span class="cart-count" id="cartCount">0 items</span>
+                    <button class="clear-cart-btn" id="clearCartBtn">Clear Cart</button>
+                </div>
+            </div>
+
+            <!-- Cart Content -->
+            <div class="cart-content">
+                <!-- Empty State (hidden by default) -->
+                <div class="empty-cart" id="emptyCart" style="display: none;">
+                    <div class="empty-icon">
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <circle cx="9" cy="21" r="1" />
+                            <circle cx="20" cy="21" r="1" />
+                            <path d="m1 1 4 4 1 2h14l-1 4H6" />
+                        </svg>
+                    </div>
+                    <h2 class="empty-title">Your cart is empty</h2>
+                    <p class="empty-message">Discover our amazing collection and find something you love. Start adding
+                        items to your cart!</p>
+                    <a href="../homepage/index.html#products" class="shop-now-btn">Start Shopping</a>
+                </div>
+
+                <!-- Cart Items -->
+                <div class="cart-main" id="cartMain">
+                    <div class="cart-items" id="cartItems">
+                        <!-- Dynamic cart management-->
+                        <!-- Sample Cart Item 1 -->
+                        <div class="cart-item">
+                            <div class="cart-item-image">
+                                <span>PREMIUM BLAZER</span>
+                            </div>
+                            <div class="cart-item-details">
+                                <div class="cart-item-info">
+                                    <h3>Premium Blazer</h3>
+                                    <div class="cart-item-specs">
+                                        <span class="cart-item-spec">Size: Large</span>
+                                        <span class="cart-item-spec">Color: Navy</span>
+                                    </div>
+                                    <div class="cart-item-price">$299.00</div>
+                                </div>
+                                <div class="cart-item-actions">
+                                    <div class="quantity-control">
+                                        <button class="quantity-btn decrease">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <line x1="5" y1="12" x2="19" y2="12" />
+                                            </svg>
+                                        </button>
+                                        <span class="quantity-display">1</span>
+                                        <button class="quantity-btn increase">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <line x1="12" y1="5" x2="12" y2="19" />
+                                                <line x1="5" y1="12" x2="19" y2="12" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <button class="remove-item-btn">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <polyline points="3,6 5,6 21,6" />
+                                            <path
+                                                d="m19,6v14a2,2 0 0,1-2,2H7a2,2 0 0,1-2-2V6m3,0V4a2,2 0 0,1,2-2h4a2,2 0 0,1,2,2v2" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sample Cart Item 2 -->
+                        <div class="cart-item">
+                            <div class="cart-item-image">
+                                <span>ELEGANT DRESS</span>
+                            </div>
+                            <div class="cart-item-details">
+                                <div class="cart-item-info">
+                                    <h3>Elegant Dress</h3>
+                                    <div class="cart-item-specs">
+                                        <span class="cart-item-spec">Size: Medium</span>
+                                        <span class="cart-item-spec">Color: Black</span>
+                                    </div>
+                                    <div class="cart-item-price">$199.00</div>
+                                </div>
+                                <div class="cart-item-actions">
+                                    <div class="quantity-control">
+                                        <button class="quantity-btn decrease">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <line x1="5" y1="12" x2="19" y2="12" />
+                                            </svg>
+                                        </button>
+                                        <span class="quantity-display">2</span>
+                                        <button class="quantity-btn increase">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <line x1="12" y1="5" x2="12" y2="19" />
+                                                <line x1="5" y1="12" x2="19" y2="12" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <button class="remove-item-btn">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <polyline points="3,6 5,6 21,6" />
+                                            <path
+                                                d="m19,6v14a2,2 0 0,1-2,2H7a2,2 0 0,1-2-2V6m3,0V4a2,2 0 0,1,2-2h4a2,2 0 0,1,2,2v2" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sample Cart Item 3 -->
+                        <div class="cart-item">
+                            <div class="cart-item-image">
+                                <span>DESIGNER JACKET</span>
+                            </div>
+                            <div class="cart-item-details">
+                                <div class="cart-item-info">
+                                    <h3>Designer Jacket</h3>
+                                    <div class="cart-item-specs">
+                                        <span class="cart-item-spec">Size: Large</span>
+                                        <span class="cart-item-spec">Color: Brown</span>
+                                    </div>
+                                    <div class="cart-item-price">$349.00</div>
+                                </div>
+                                <div class="cart-item-actions">
+                                    <div class="quantity-control">
+                                        <button class="quantity-btn decrease">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <line x1="5" y1="12" x2="19" y2="12" />
+                                            </svg>
+                                        </button>
+                                        <span class="quantity-display">1</span>
+                                        <button class="quantity-btn increase">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <line x1="12" y1="5" x2="12" y2="19" />
+                                                <line x1="5" y1="12" x2="19" y2="12" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <button class="remove-item-btn">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <polyline points="3,6 5,6 21,6" />
+                                            <path
+                                                d="m19,6v14a2,2 0 0,1-2,2H7a2,2 0 0,1-2-2V6m3,0V4a2,2 0 0,1,2-2h4a2,2 0 0,1,2,2v2" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cart Summary -->
+                    <div class="cart-summary fade-in-section">
+                        <div class="summary-card">
+                            <h3 class="summary-title">Order Summary</h3>
+
+                            <div class="summary-row">
+                                <span>Subtotal</span>
+                                <span id="subtotalAmount">$1,047.00</span>
+                            </div>
+
+                            <div class="summary-row">
+                                <span>Shipping</span>
+                                <span id="shippingAmount">$25.00</span>
+                            </div>
+
+                            <div class="summary-row">
+                                <span>Tax</span>
+                                <span id="taxAmount">$85.76</span>
+                            </div>
+
+                            <div class="summary-divider"></div>
+
+                            <div class="summary-row total">
+                                <span>Total</span>
+                                <span id="totalAmount">$1,157.76</span>
+                            </div>
+
+                            <div class="checkout-actions">
+                                <button class="checkout-btn" id="checkoutBtn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <rect x="1" y="3" width="22" height="18" rx="2" ry="2" />
+                                        <line x1="1" y1="9" x2="23" y2="9" />
+                                    </svg>
+                                    Proceed to Checkout
+                                </button>
+
+                                <div class="payment-methods">
+                                    <small>We accept</small>
+                                    <div class="payment-icons">
+                                        <span class="payment-icon">💳</span>
+                                        <span class="payment-icon">🏦</span>
+                                        <span class="payment-icon">📱</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Promo Code -->
+                        <div class="promo-section">
+                            <div class="promo-input-container">
+                                <input type="text" class="promo-input" id="promoInput" placeholder="Enter promo code">
+                                <button class="apply-promo-btn" id="applyPromoBtn">Apply</button>
+                            </div>
+                            <div class="promo-message" id="promoMessage"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (same as other pages) -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h3 class="footer__title">BINGO.</h3>
+                    <p>Timeless fashion for the modern individual. Quality, style, and elegance in every piece.</p>
+                </div>
+                <div class="footer__section">
+                    <h4 class="footer__title">Shop</h4>
+                    <ul class="footer__links">
+                        <li><a href="#" class="footer__link">Men's Collection</a></li>
+                        <li><a href="#" class="footer__link">Women's Collection</a></li>
+                        <li><a href="#" class="footer__link">New Arrivals</a></li>
+                        <li><a href="#" class="footer__link">Sale</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h4 class="footer__title">Support</h4>
+                    <ul class="footer__links">
+                        <li><a href="#" class="footer__link">Contact Us</a></li>
+                        <li><a href="#" class="footer__link">Size Guide</a></li>
+                        <li><a href="#" class="footer__link">Returns</a></li>
+                        <li><a href="#" class="footer__link">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h4 class="footer__title">Connect</h4>
+                    <div class="footer__social">
+                        <p>Follow us for the latest updates</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link">Instagram</a>
+                            <a href="#" class="social-link">Twitter</a>
+                            <a href="#" class="social-link">Facebook</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2024 BINGO. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Matching Overlay (same as other pages) -->
+    <div class="matching-overlay" id="matchingOverlay">
+        <div class="matching-container">
+            <button class="matching-close" id="matchingClose">&times;</button>
+            <div class="matching-progress">
+                <span id="matchingProgress">1/10</span>
+            </div>
+            <div class="matching-card-container" id="matchingCardContainer">
+                <!-- Cards will be loaded here -->
+            </div>
+            <div class="matching-instructions">
+                <p>Swipe left or right • Use arrow keys</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Minimal JavaScript - Only for animations and basic interactions
+        document.addEventListener('DOMContentLoaded', () => {
+            animateCartItems();
+            animateFadeInSections();
+            setupEventListeners();
+        });
+
+        function animateCartItems() {
+            const items = document.querySelectorAll('#cartItems .cart-item');
+            items.forEach((item, index) => {
+                item.style.opacity = 0;
+                item.style.transform = 'translateX(-20px)';
+                setTimeout(() => {
+                    item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    item.style.opacity = 1;
+                    item.style.transform = 'translateX(0)';
+                }, index * 150);
+            });
+
+            const summary = document.querySelector('.cart-summary');
+            if (summary) {
+                summary.style.opacity = 0;
+                summary.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    summary.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    summary.style.opacity = 1;
+                    summary.style.transform = 'translateY(0)';
+                }, (items.length * 150) + 300);
+            }
+        }
+
+        function animateFadeInSections() {
+            // Animate fade-in sections
+            const fadeElements = document.querySelectorAll('.fade-in-section');
+            fadeElements.forEach((element, index) => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+                setTimeout(() => {
+                    element.style.transition = 'all 0.8s ease';
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        }
+
+        function setupEventListeners() {
+            const backBtn = document.getElementById('backBtn');
+            if (backBtn) backBtn.addEventListener('click', () => window.history.back());
+
+            const clearBtn = document.getElementById('clearCartBtn');
+            if (clearBtn) clearBtn.addEventListener('click', clearCart);
+
+            const checkoutBtn = document.getElementById('checkoutBtn');
+            if (checkoutBtn) checkoutBtn.addEventListener('click', proceedToCheckout);
+
+            const applyPromoBtn = document.getElementById('applyPromoBtn');
+            const promoInput = document.getElementById('promoInput');
+            if (applyPromoBtn && promoInput) {
+                applyPromoBtn.addEventListener('click', applyPromoCode);
+                promoInput.addEventListener('keypress', e => {
+                    if (e.key === 'Enter') applyPromoCode();
+                });
+            }
+
+            // Handle quantity and remove buttons
+            document.body.addEventListener('click', e => {
+                const target = e.target.closest('button');
+                if (!target) return;
+
+                if (target.classList.contains('quantity-btn')) {
+                    if (target.classList.contains('increase')) increaseQuantity(target);
+                    else if (target.classList.contains('decrease')) decreaseQuantity(target);
+                } else if (target.classList.contains('remove-item-btn')) {
+                    removeItem(target);
+                }
+            });
+        }
+
+        function increaseQuantity(btn) {
+            const display = btn.parentElement.querySelector('.quantity-display');
+            let current = parseInt(display.textContent) || 1;
+            display.textContent = current + 1;
+            animateBtnClick(btn);
+            updateTotals();
+            showNotification('Quantity increased!');
+        }
+
+        function decreaseQuantity(btn) {
+            const display = btn.parentElement.querySelector('.quantity-display');
+            let current = parseInt(display.textContent) || 1;
+            if (current > 1) {
+                display.textContent = current - 1;
+                animateBtnClick(btn);
+                updateTotals();
+                showNotification('Quantity decreased!');
+            }
+        }
+
+        function removeItem(btn) {
+            const item = btn.closest('.cart-item');
+            item.classList.add('removing');
+            setTimeout(() => {
+                item.remove();
+                updateTotals();
+                checkEmpty();
+                showNotification('Item removed from cart!');
+            }, 400);
+            animateBtnClick(btn);
+        }
+
+        function clearCart() {
+            const items = document.querySelectorAll('#cartItems .cart-item');
+            items.forEach((item, idx) => {
+                setTimeout(() => {
+                    item.classList.add('removing');
+                    setTimeout(() => {
+                        item.remove();
+                        if (idx === items.length - 1) {
+                            updateTotals();
+                            showEmpty();
+                            showNotification('Cart cleared!');
+                        }
+                    }, 300);
+                }, idx * 100);
+            });
+        }
+
+        function proceedToCheckout() {
+            const btn = document.getElementById('checkoutBtn');
+            animateBtnClick(btn);
+            showNotification('Checkout functionality ready for backend integration!');
+        }
+
+        function applyPromoCode() {
+            const input = document.getElementById('promoInput');
+            const msg = document.getElementById('promoMessage');
+            const code = input.value.toUpperCase().trim();
+            const validCodes = {
+                'WELCOME10': '10% off applied!',
+                'SAVE20': '20% off applied!',
+                'FREESHIP': 'Free shipping applied!'
+            };
+
+            msg.className = 'promo-message';
+            if (code && validCodes[code]) {
+                msg.textContent = validCodes[code];
+                msg.classList.add('success', 'show');
+                updateTotals();
+            } else if (code) {
+                msg.textContent = 'Invalid promo code';
+                msg.classList.add('error', 'show');
+            }
+        }
+
+        function updateTotals() {
+            // Static prices matching the HTML items
+            const prices = [299, 199, 349];
+            const quantities = Array.from(document.querySelectorAll('.quantity-display'))
+                .map(q => parseInt(q.textContent) || 1);
+
+            let subtotal = 0;
+            quantities.forEach((qty, idx) => {
+                if (prices[idx]) {
+                    subtotal += prices[idx] * qty;
+                }
+            });
+
+            const shipping = subtotal > 500 ? 0 : 25;
+            const tax = subtotal * 0.08;
+            const total = subtotal + shipping + tax;
+
+            setTextAnimated('subtotalAmount', `$${subtotal.toFixed(2)}`);
+            setTextAnimated('shippingAmount', shipping === 0 ? 'Free' : `$${shipping.toFixed(2)}`);
+            setTextAnimated('taxAmount', `$${tax.toFixed(2)}`);
+            setTextAnimated('totalAmount', `$${total.toFixed(2)}`);
+
+            updateCartCount();
+        }
+
+        function updateCartCount() {
+            const quantities = Array.from(document.querySelectorAll('.quantity-display'))
+                .map(q => parseInt(q.textContent) || 0);
+            const count = quantities.reduce((a, b) => a + b, 0);
+            const countElem = document.getElementById('cartCount');
+            if (countElem) {
+                countElem.textContent = `${count} item${count !== 1 ? 's' : ''}`;
+            }
+        }
+
+        function checkEmpty() {
+            const items = document.querySelectorAll('#cartItems .cart-item');
+            if (items.length === 0) showEmpty();
+        }
+
+        function showEmpty() {
+            const cartMain = document.getElementById('cartMain');
+            const empty = document.getElementById('emptyCart');
+            cartMain.style.display = 'none';
+            empty.style.display = 'block';
+        }
+
+        function setTextAnimated(id, text) {
+            const el = document.getElementById(id);
+            if (el) {
+                el.style.transform = 'scale(1.2)';
+                el.style.color = 'var(--accent-gold)';
+                setTimeout(() => {
+                    el.textContent = text;
+                    el.style.transform = 'scale(1)';
+                    el.style.color = '';
+                }, 150);
+            }
+        }
+
+        function animateBtnClick(btn) {
+            if (!btn) return;
+            btn.style.transform = 'scale(0.95)';
+            setTimeout(() => btn.style.transform = '', 150);
+        }
+
+        function showNotification(message) {
+            const notif = document.createElement('div');
+            notif.className = 'notification';
+            notif.textContent = message;
+            notif.style.cssText = `
+        position: fixed; 
+        top: 100px; 
+        right: 20px; 
+        background: var(--accent-gold); 
+        color: var(--primary-dark); 
+        padding: 12px 20px; 
+        border-radius: 8px; 
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3); 
+        font-weight: 600; 
+        z-index: 10000; 
+        opacity: 0; 
+        transition: opacity 0.3s ease;
+    `;
+
+            document.body.appendChild(notif);
+            setTimeout(() => notif.style.opacity = '1', 100);
+            setTimeout(() => {
+                notif.style.opacity = '0';
+                setTimeout(() => notif.remove(), 300);
+            }, 3000);
+        }
+
+
+    </script>
+</body>
+
+</html>
