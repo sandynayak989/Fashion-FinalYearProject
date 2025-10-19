@@ -2541,7 +2541,7 @@ a:focus-visible {
     justify-content: space-between;
     align-items: center;
     margin-bottom: var(--space-32);
-    padding-bottom: var(--space-24);
+    padding-bottom: var(--space-24); 
     border-bottom: 1px solid var(--border-color);
 }
 
